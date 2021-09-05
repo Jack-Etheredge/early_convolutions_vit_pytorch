@@ -7,7 +7,7 @@ This model does appear to outperform the original ViT paper for the same amount 
 
 As a starting point for the original ViT ("An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale") implementation in PyTorch, I used Phil Wang's repo [https://github.com/lucidrains/vit-pytorch/](https://github.com/lucidrains/vit-pytorch/).
 
-Both notebooks have device hard-coded to 'cuda'. I tried training on CPU and got more than a 60x speed up switching to an RTX 2070. If you want to train on CPU for a few epochs, then you'll need to switch that out in the notebook(s).
+Both notebooks will use the GPU if it's available according to torch. The training is quite slow on CPU. I tried training on CPU and got more than a 60x speed up switching to an RTX 2070 (your speedup will, of course, depend on the CPU and GPU).
 
 ## Bibtex paper citations:
 ```bibtex
@@ -34,8 +34,7 @@ Both notebooks have device hard-coded to 'cuda'. I tried training on CPU and got
 
 ## Planned updates:
 1. Example usage in readme
-2. Notebook checks for GPU and uses it if present, otherwise uses CPU
-3. Script version of notebook that saves weights and is more flexible regarding input data (intelligently deals with class number, etc)
-4. PyTorch Lightning version
-5. CLI for model training and weight saving
-6. General cleanup and improvements (values from paper are currently hard-coded into the model and there's no testing, logging, etc)
+2. Script version of notebook that saves weights and is more flexible regarding input data (intelligently deals with class number, etc)
+3. PyTorch Lightning version
+4. CLI for model training and weight saving
+5. General cleanup and improvements (values from paper are currently hard-coded into the model and there's no testing, logging, etc)
